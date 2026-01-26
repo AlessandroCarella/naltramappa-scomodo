@@ -6,5 +6,13 @@
     "description": "La Feltrinelli, 119, Via Melo da Bari, Murat, Municipio 1, Bari, Puglia, 70121, Italia",
     "type": "purple",
     "category": "addresstype"
+  },
+  {
+    "name": "Caff\u00e8 Portineria",
+    "latitude": 41.1241993,
+    "longitude": 16.8682278,
+    "description": "Caff\u00e8 Portineria, 58A, Via Roberto da Bari, Murat, Municipio 1, Bari, Puglia, 70122, Italia",
+    "type": "purple",
+    "category": "addresstype"
   }
 ]

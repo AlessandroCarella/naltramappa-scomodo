@@ -1,88 +1,209 @@
 import requests
 import json
+import os
+import sys
+from pathlib import Path
 
 
-def search_cafe_in_bari(cafe_name):
-    # Nominatim API endpoint
-    base_url = "https://nominatim.openstreetmap.org/search"
-    
-    # Search query - searching for the cafe in Bari, Italy
-    search_query = f"{cafe_name}, Bari, Italy"
-    
-    # Parameters for the API request
-    params = {
-        'q': search_query,
-        'format': 'json',
-        'limit': 1,  # Get the top result
-    }
+class CafeSearchApp:
+    def __init__(self, data_file="data/pins.json"):
+        self.data_file = data_file
+        self.base_url = "https://nominatim.openstreetmap.org/search"
+        self.headers = {'User-Agent': 'CafeSearchApp/1.0'}
+        self.history = []  # Track operations for undo
+        self._ensure_data_file()
 
-    # Headers (Nominatim requires a User-Agent)
-    headers = {
-        'User-Agent': 'CafeSearchApp/1.0'
-    }
-    
-    try:
-        # Make the API request
-        response = requests.get(base_url, params=params, headers=headers)
-        response.raise_for_status()
+    def _ensure_data_file(self):
+        """Ensure the data file and directory exist"""
+        Path(self.data_file).parent.mkdir(parents=True, exist_ok=True)
+        if not os.path.exists(self.data_file):
+            with open(self.data_file, 'w') as f:
+                json.dump([], f)
+
+    def search_cafe_in_bari(self, cafe_name):
+        """Search for a cafe in Bari using Nominatim API"""
+        search_query = f"{cafe_name}, Bari, Italy"
         
-        # Parse the JSON response
-        results = response.json()
+        params = {
+            'q': search_query,
+            'format': 'json',
+            'limit': 1,
+        }
         
-        if not results:
-            return {
-                'error': f'No results found for "{cafe_name}" in Bari',
-                'name': None,
-                'coordinates': None,
-                'description': None
+        try:
+            response = requests.get(self.base_url, params=params, headers=self.headers)
+            response.raise_for_status()
+            results = response.json()
+            
+            if not results:
+                return {
+                    'error': f'No results found for "{cafe_name}" in Bari',
+                }
+            
+            place = results[0]
+            
+            result = {
+                'name': place.get('name', cafe_name),
+                'latitude': float(place.get('lat', 0)),
+                'longitude': float(place.get('lon', 0)),
+                'description': place.get('display_name', ''),
+                'type': 'purple',
+                'category': 'addresstype'
             }
-        
-        # Get the first result
-        place = results[0]
-        print(place)
-        
-        # Extract information
-        result = {
-            'name': place.get('name', ''),
-            'latitude': float(place.get('lat', 0)),
-            'longitude': float(place.get('lon', 0)),
-            'description': place.get('display_name', ''),
-            'type': 'purple',
-            'category': 'addresstype'
-        }
-        
-        return result
-        
-    except requests.exceptions.RequestException as e:
-        return {
-            'error': f'API request failed: {str(e)}',
-            'name': None,
-            'coordinates': None,
-            'description': None
-        }
+            
+            return result
+            
+        except requests.exceptions.RequestException as e:
+            return {
+                'error': f'API request failed: {str(e)}',
+            }
 
+    def load_data(self):
+        """Load existing cafe data"""
+        with open(self.data_file, 'r') as f:
+            return json.load(f)
 
-def main(cafe_name):    
-    print(f"Searching for: {cafe_name} in Bari, Italy\n")
-    
-    result = search_cafe_in_bari(cafe_name)
-    
-    if 'error' in result:
-        print(f"Error: {result['error']}")
-    else:
-        
-        # Pretty print the full result
-        print("\nFull result (JSON):")
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-        
-        with open ("data/pins.json", "r") as f:
-            data = json.load(f)
-            for elem in data:
-                if elem["name"] == result["name"]:
-                    exit()
-            data.append(result)
-        with open ("data/pins.json", "w") as f:
+    def save_data(self, data):
+        """Save cafe data to file"""
+        with open(self.data_file, 'w') as f:
             json.dump(data, f, indent=2, ensure_ascii=True)
 
-cafe_name = "feltrinelli"
-main(cafe_name)
+    def add_cafe(self, cafe_name):
+        """Search and add a cafe to the database"""
+        print(f"\n🔍 Searching for: {cafe_name} in Bari, Italy...")
+        
+        result = self.search_cafe_in_bari(cafe_name)
+        
+        if 'error' in result:
+            print(f"❌ Error: {result['error']}")
+            return False
+        
+        data = self.load_data()
+        
+        # Check if already exists
+        for elem in data:
+            if elem.get("name") == result["name"]:
+                print(f"ℹ️  '{result['name']}' already exists in the database!")
+                return False
+        
+        # Add new entry
+        data.append(result)
+        self.save_data(data)
+        self.history.append(('add', result['name']))
+        
+        print(f"✅ Added: {result['name']}")
+        print(f"📍 Location: {result['latitude']}, {result['longitude']}")
+        print(f"📝 {result['description']}")
+        
+        return True
+
+    def undo_last(self):
+        """Remove the last added entry"""
+        if not self.history:
+            print("❌ Nothing to undo!")
+            return False
+        
+        last_action, cafe_name = self.history.pop()
+        
+        if last_action == 'add':
+            data = self.load_data()
+            original_length = len(data)
+            data = [cafe for cafe in data if cafe.get('name') != cafe_name]
+            
+            if len(data) < original_length:
+                self.save_data(data)
+                print(f"↩️  Removed: {cafe_name}")
+                return True
+            else:
+                print(f"❌ Could not find '{cafe_name}' to remove")
+                return False
+        
+        return False
+
+    def list_cafes(self):
+        """List all saved cafes"""
+        data = self.load_data()
+        
+        if not data:
+            print("\n📝 No cafes saved yet!")
+            return
+        
+        print(f"\n📝 Saved cafes ({len(data)}):")
+        print("=" * 60)
+        for i, cafe in enumerate(data, 1):
+            print(f"{i}. {cafe.get('name', 'Unknown')}")
+            print(f"   📍 {cafe.get('latitude')}, {cafe.get('longitude')}")
+            print(f"   📝 {cafe.get('description', 'No description')}")
+            print()
+
+    def clear_screen(self):
+        """Clear the terminal screen"""
+        os.system('cls' if os.name == 'nt' else 'clear')
+
+    def print_help(self):
+        """Print help information"""
+        print("\nCommands:")
+        print("  • Type a cafe name to search and add it")
+        print("  • 'undo' or 'u' - Remove the last entry")
+        print("  • 'list' or 'l' - Show all saved cafes")
+        print("  • 'clear' or 'cls' - Clear screen")
+        print("  • 'help' or 'h' - Show this help")
+        print("  • 'quit', 'exit', or 'q' - Exit the app")
+        print("  • Ctrl+C - Quick exit")
+        print("=" * 60 + "\n")
+
+    def run(self):
+        """Main interactive loop"""
+        self.clear_screen()
+        self.print_help()
+        
+        print("Type 'help' to see available commands\n")
+        
+        while True:
+            try:
+                # Get user input
+                user_input = input("🔍 Enter query (or command): ").strip()
+                
+                if not user_input:
+                    continue
+                
+                # Parse commands
+                command = user_input.lower()
+                
+                if command in ['quit', 'exit', 'q']:
+                    print("\n👋 Goodbye!")
+                    break
+                
+                elif command in ['undo', 'u']:
+                    self.undo_last()
+                
+                elif command in ['list', 'l']:
+                    self.list_cafes()
+                
+                elif command in ['clear', 'cls']:
+                    self.clear_screen()
+                    self.print_help()
+                
+                elif command in ['help', 'h']:
+                    self.print_help()
+                
+                else:
+                    # Treat as cafe name to search
+                    self.add_cafe(user_input)
+            
+            except KeyboardInterrupt:
+                print("\n\n👋 Goodbye!")
+                break
+            
+            except Exception as e:
+                print(f"\n❌ An error occurred: {str(e)}")
+                print("Type 'help' for available commands\n")
+
+
+def main():
+    app = CafeSearchApp()
+    app.run()
+
+
+if __name__ == "__main__":
+    main()
