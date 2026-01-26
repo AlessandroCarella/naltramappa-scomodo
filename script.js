@@ -27,6 +27,7 @@ function applyConstants() {
 // Global variables for auto-update functionality
 let currentMarkers = [];
 let previousPinsData = null;
+let previousPins = [];
 let updateInterval = null;
 
 // Add hover functionality to title overlay
@@ -53,7 +54,9 @@ const map = L.map("map", {
     doubleClickZoom: true,
     touchZoom: true,
     zoomSnap: MAP_ZOOM_SNAP, // Allows zoom to snap at 0.1 increments
-    zoomDelta: MAP_ZOOM_DELTA, // Zoom in/out by 0.5 per action
+    zoomDelta: MAP_ZOOM_DELTA, // Zoom in/out by 0.5 per action (keyboard and scroll wheel)
+    wheelPxPerZoomLevel: 60 * MAP_ZOOM_DELTA, // Pixels per zoom increment (30px for 0.5 zoom)
+    wheelDebounceTime: 40, // Debounce time for scroll wheel in milliseconds
 });
 
 // Add CartoDB Voyager tile layer (no labels)
@@ -87,9 +90,10 @@ function clearMarkers() {
 }
 
 // Function to show update indicator
-function showUpdateIndicator() {
+function showUpdateIndicator(message = "● Auto-update active") {
     const indicator = document.getElementById("update-indicator");
     if (indicator) {
+        indicator.textContent = message;
         indicator.classList.add("active");
         setTimeout(() => {
             indicator.classList.remove("active");
@@ -111,10 +115,33 @@ async function loadMarkers() {
             return; // No changes, skip update
         }
 
+        // Detect new pins by comparing with previous pins
+        let newPins = [];
+        if (previousPins.length > 0) {
+            newPins = pins.filter((pin) => {
+                return !previousPins.some(
+                    (prevPin) =>
+                        prevPin.latitude === pin.latitude &&
+                        prevPin.longitude === pin.longitude &&
+                        prevPin.name === pin.name,
+                );
+            });
+        }
+
         // Show update indicator if this is not the first load
         if (previousPinsData !== null) {
-            showUpdateIndicator();
+            let message = "● Markers updated";
+            if (newPins.length > 0) {
+                message = `● New pin: ${newPins[0].name}`;
+            }
+            showUpdateIndicator(message);
             console.log("Pins data updated - refreshing markers");
+            if (newPins.length > 0) {
+                console.log(
+                    `${newPins.length} new pin(s) detected:`,
+                    newPins.map((p) => p.name),
+                );
+            }
         }
 
         // Clear existing markers
@@ -155,12 +182,21 @@ async function loadMarkers() {
                 this.closeTooltip();
             });
 
+            // Add double-click to focus on pin
+            marker.on("dblclick", function () {
+                map.setView([pin.latitude, pin.longitude], MAP_PIN_FOCUS_ZOOM, {
+                    animate: true,
+                    duration: 0.5,
+                });
+            });
+
             // Store marker reference
             currentMarkers.push(marker);
         });
 
         // Update previous data
         previousPinsData = pinsString;
+        previousPins = JSON.parse(JSON.stringify(pins)); // Deep copy
 
         console.log(`Successfully loaded ${pins.length} pins to the map`);
     } catch (error) {

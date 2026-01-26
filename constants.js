@@ -28,6 +28,7 @@ const MAP_CENTER_LNG = 16.8719;
 const MAP_INITIAL_ZOOM = 13;
 const MAP_MIN_ZOOM = 10;
 const MAP_MAX_ZOOM = 19;
+const MAP_PIN_FOCUS_ZOOM = 15.5; // Zoom level when double-clicking/focusing on a pin
 const MAP_ZOOM_SNAP = 0.1; // Allows zoom levels at 0.1 increments (e.g., 13.1, 13.2)
 const MAP_ZOOM_DELTA = 0.5; // Zoom in/out by 0.5 per scroll/click
 
@@ -45,7 +46,7 @@ const AUTO_UPDATE_ENABLED = true; // Enable/disable auto-update
 const AUTO_UPDATE_INTERVAL = 3000; // Check for updates every 3 seconds (3000ms)
 
 // Export constants (for module usage if needed)
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== "undefined" && module.exports) {
     module.exports = {
         TITLE_TEXT,
         TITLE_TEXT_HOVER,
@@ -66,6 +67,7 @@ if (typeof module !== 'undefined' && module.exports) {
         MAP_INITIAL_ZOOM,
         MAP_MIN_ZOOM,
         MAP_MAX_ZOOM,
+        MAP_PIN_FOCUS_ZOOM,
         MAP_ZOOM_SNAP,
         MAP_ZOOM_DELTA,
         POLYGON_COLOR,
@@ -76,6 +78,6 @@ if (typeof module !== 'undefined' && module.exports) {
         POLYGON_FILL_OPACITY,
         POLYGON_BOUNDS_PADDING,
         AUTO_UPDATE_ENABLED,
-        AUTO_UPDATE_INTERVAL
+        AUTO_UPDATE_INTERVAL,
     };
 }
