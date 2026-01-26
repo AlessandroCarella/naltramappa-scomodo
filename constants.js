@@ -1,14 +1,14 @@
 // Map Configuration Constants
 
 // Title Configuration
-const TITLE_TEXT = "Bari Metropolitan Area - Interactive Map";
-const TITLE_TEXT_HOVER = "Explore the City of Bari"; // Alternative text on hover
-const TITLE_BOX_COLOR = "#dc2626"; // Red color for the title box
-const TITLE_TEXT_COLOR = "#ffffff"; // White text
+const TITLE_TEXT = "Scomodo Bari";
+const TITLE_TEXT_HOVER = "Mappami tutto"; // Alternative text on hover
+const TITLE_BOX_COLOR = "#000000"; // Red color for the title box
+const TITLE_TEXT_COLOR = "#007d8c"; // White text
 
 // Pin Colors
-const PIN_COLOR_GREEN = "#10b981";
-const PIN_COLOR_PURPLE = "#8b5cf6";
+const PIN_COLOR_GREEN = "#007d8c";
+const PIN_COLOR_PURPLE = "#e6303f";
 
 // Pin Sizes
 const PIN_WIDTH = 30;
@@ -19,8 +19,8 @@ const PIN_BORDER_COLOR = "#ffffff";
 // Tooltip Colors
 const TOOLTIP_BACKGROUND = "rgba(0, 0, 0, 0.9)";
 const TOOLTIP_TEXT_COLOR = "#e5e7eb";
-const TOOLTIP_TITLE_COLOR_GREEN = "#10b981";
-const TOOLTIP_TITLE_COLOR_PURPLE = "#8b5cf6";
+const TOOLTIP_TITLE_COLOR_GREEN = "#007d8c";
+const TOOLTIP_TITLE_COLOR_PURPLE = "#e6303f";
 
 // Map Initial Settings
 const MAP_CENTER_LAT = 41.1171;
@@ -33,7 +33,7 @@ const MAP_ZOOM_SNAP = 0.1; // Allows zoom levels at 0.1 increments (e.g., 13.1, 
 const MAP_ZOOM_DELTA = 0.5; // Zoom in/out by 0.5 per scroll/click
 
 // Polygon Outline Settings
-const POLYGON_COLOR = "#000000"; // Black
+const POLYGON_COLOR = "#007d8c"; // Black
 const POLYGON_WEIGHT = 3;
 const POLYGON_OPACITY = 1;
 const POLYGON_FILL = false;

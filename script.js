@@ -29,6 +29,7 @@ let currentMarkers = [];
 let previousPinsData = null;
 let previousPins = [];
 let updateInterval = null;
+let initialBounds = null; // Store initial polygon bounds for reset
 
 // Add hover functionality to title overlay
 function setupTitleHover() {
@@ -72,13 +73,33 @@ L.tileLayer(
 
 // Custom icon creator function
 function createCustomIcon(color) {
+    const colorValue = color === "green" ? PIN_COLOR_GREEN : PIN_COLOR_PURPLE;
+    const opacity = 1;
+
     return L.divIcon({
-        className: "custom-div-icon",
-        html: `<div class="custom-marker marker-${color}"></div>`,
-        iconSize: [PIN_WIDTH, PIN_HEIGHT],
-        iconAnchor: [PIN_WIDTH / 2, PIN_HEIGHT],
-        popupAnchor: [0, -PIN_HEIGHT],
+        className: "custom-marker",
+        html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 35" opacity="${opacity}">
+            <path d="M12.5 0C5.6 0 0 5.6 0 12.5c0 7 12.5 22.5 12.5 22.5S25 19.5 25 12.5C25 5.6 19.4 0 12.5 0z" 
+                  fill="${colorValue}" stroke="#fff" stroke-width="1.5"/>
+            <circle cx="12.5" cy="12.5" r="5" fill="#fff" opacity="0.9"/>
+        </svg>`,
+        iconSize: [25, 35],
+        iconAnchor: [12.5, 35],
+        popupAnchor: [0, -35],
+        tooltipAnchor: [0, -25],
     });
+
+    // return L.divIcon({
+    //     className: "custom-marker",
+    //     html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" opacity="${opacity}">
+    //         <circle cx="12" cy="12" r="10" fill="${colorValue}" stroke="#fff" stroke-width="2"/>
+    //         <circle cx="12" cy="12" r="4" fill="#fff" opacity="0.9"/>
+    //     </svg>`,
+    //     iconSize: [24, 24],
+    //     iconAnchor: [12, 24],
+    //     popupAnchor: [0, -12],
+    //     tooltipAnchor: [0, -12],
+    // });
 }
 
 // Function to clear all current markers from the map
@@ -230,6 +251,9 @@ async function loadBariOutline() {
             padding: POLYGON_BOUNDS_PADDING,
         });
 
+        // Store initial bounds for reset functionality
+        initialBounds = polygon.getBounds();
+
         console.log(
             `Successfully loaded Bari outline with ${coordinates.length} coordinates`,
         );
@@ -302,5 +326,53 @@ document.addEventListener("keydown", function (e) {
         case "_":
             map.setZoom(map.getZoom() - MAP_ZOOM_DELTA);
             break;
+        case " ": // Space bar
+        case "r":
+        case "R":
+            e.preventDefault(); // Prevent default space bar scrolling
+            // Reset zoom using initial bounds or default center
+            if (initialBounds) {
+                map.fitBounds(initialBounds, {
+                    padding: POLYGON_BOUNDS_PADDING,
+                    animate: true,
+                    duration: 0.5,
+                });
+            } else {
+                map.setView(
+                    [MAP_CENTER_LAT, MAP_CENTER_LNG],
+                    MAP_INITIAL_ZOOM,
+                    {
+                        animate: true,
+                        duration: 0.5,
+                    },
+                );
+            }
+            break;
+    }
+});
+
+// Reset zoom button functionality
+document.addEventListener("DOMContentLoaded", function () {
+    const resetButton = document.getElementById("reset-zoom");
+    if (resetButton) {
+        resetButton.addEventListener("click", function () {
+            // Use the initial bounds if available (from polygon), otherwise fall back to constants
+            if (initialBounds) {
+                map.fitBounds(initialBounds, {
+                    padding: POLYGON_BOUNDS_PADDING,
+                    animate: true,
+                    duration: 0.5,
+                });
+            } else {
+                map.setView(
+                    [MAP_CENTER_LAT, MAP_CENTER_LNG],
+                    MAP_INITIAL_ZOOM,
+                    {
+                        animate: true,
+                        duration: 0.5,
+                    },
+                );
+            }
+        });
     }
 });

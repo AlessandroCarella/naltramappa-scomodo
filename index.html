@@ -1,37 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Map - Bari Metropolitan Area</title>
-    
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- Full screen map -->
-    <div id="map"></div>
-    
-    <!-- Overlay title box -->
-    <div id="title-overlay">
-        <h1 id="map-title"></h1>
-    </div>
-    
-    <!-- Auto-update indicator -->
-    <div class="update-indicator" id="update-indicator">
-        ● Auto-update active
-    </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Scomodo</title>
 
-    <!-- Leaflet JavaScript -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    
-    <!-- Constants -->
-    <script src="constants.js"></script>
-    
-    <!-- Custom JavaScript -->
-    <script src="script.js"></script>
-</body>
+        <!-- Leaflet CSS -->
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        />
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <!-- Full screen map -->
+        <div id="map"></div>
+
+        <!-- Overlay title box -->
+        <div id="title-overlay">
+            <h1 id="map-title"></h1>
+        </div>
+
+        <!-- Reset zoom button -->
+        <button id="reset-zoom" title="Reset zoom">
+            <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+            >
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                <path d="M3 3v5h5" />
+            </svg>
+        </button>
+
+        <!-- Auto-update indicator -->
+        <div class="update-indicator" id="update-indicator">
+            ● Auto-update active
+        </div>
+
+        <!-- Leaflet JavaScript -->
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+        <!-- Constants -->
+        <script src="constants.js"></script>
+
+        <!-- Custom JavaScript -->
+        <script src="script.js"></script>
+    </body>
 </html>
