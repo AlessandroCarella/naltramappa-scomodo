@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+#map {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Overlay title box */
+#title-overlay {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background-color: var(--title-box-color, #dc2626);
+    padding: 15px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    pointer-events: auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#title-overlay:hover {
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+}
+
+#map-title {
+    color: var(--title-text-color, #ffffff);
+    font-size: 1.8em;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
+}
+
+/* Custom marker styles */
+.custom-marker {
+    width: var(--pin-width, 30px);
+    height: var(--pin-height, 30px);
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    border: var(--pin-border-width, 3px) solid var(--pin-border-color, #ffffff);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.custom-marker:hover {
+    transform: rotate(-45deg) scale(1.2);
+}
+
+.marker-green {
+    background-color: var(--pin-color-green, #10b981);
+}
+
+.marker-purple {
+    background-color: var(--pin-color-purple, #8b5cf6);
+}
+
+/* Custom tooltip styles */
+.custom-tooltip {
+    background-color: var(--tooltip-background, rgba(0, 0, 0, 0.9));
+    border: none;
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: var(--tooltip-text-color, #e5e7eb);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    font-size: 14px;
+    max-width: 250px;
+}
+
+.custom-tooltip::before {
+    border-top-color: var(--tooltip-background, rgba(0, 0, 0, 0.9)) !important;
+}
+
+.tooltip-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 6px;
+    color: var(--tooltip-title-color-green, #10b981);
+}
+
+.tooltip-title.purple {
+    color: var(--tooltip-title-color-purple, #8b5cf6);
+}
+
+.tooltip-description {
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--tooltip-text-color, #e5e7eb);
+}
+
+/* Leaflet controls styling */
+.leaflet-control-zoom {
+    border-radius: 8px !important;
+    overflow: hidden;
+}
+
+.leaflet-control-zoom a {
+    font-size: 18px !important;
+    line-height: 30px !important;
+    width: 30px !important;
+    height: 30px !important;
+}
+
+/* Attribution */
+.leaflet-control-attribution {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    border-radius: 5px;
+    font-size: 11px;
+}
+
+/* Responsive title for smaller screens */
+@media (max-width: 768px) {
+    #map-title {
+        font-size: 1.2em;
+    }
+    
+    #title-overlay {
+        padding: 10px 25px;
+        top: 10px;
+    }
+}
+
+/* Auto-update indicator */
+.update-indicator {
+    position: absolute;
+    bottom: 30px;
+    right: 15px;
+    z-index: 1000;
+    background-color: rgba(16, 185, 129, 0.9);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.update-indicator.active {
+    opacity: 1;
+}

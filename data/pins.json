@@ -1,0 +1,30 @@
+[
+    {
+        "latitude": 41.1089,
+        "longitude": 16.8828,
+        "type": "green",
+        "name": "Teatro Petruzzelli",
+        "description": "The largest theatre in Bari and one of the most important in Italy"
+    },
+    {
+        "latitude": 41.1252,
+        "longitude": 16.8668,
+        "type": "purple",
+        "name": "Castello Normanno-Svevo",
+        "description": "A medieval castle built by Roger II of Sicily in the 12th century"
+    },
+    {
+        "latitude": 41.1197,
+        "longitude": 16.8625,
+        "type": "purple",
+        "name": "Basilica di San Nicola",
+        "description": "An important pilgrimage site and one of the finest examples of Apulian Romanesque architecture"
+    },
+        {
+        "latitude": 41.1171,
+        "longitude": 16.8719,
+        "type": "green",
+        "name": "Bari Vecchia",
+        "description": "The charming old town of Bari with narrow streets and historic buildings"
+    }
+]
