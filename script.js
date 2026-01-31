@@ -26,6 +26,7 @@ function applyConstants() {
 
 // Global variables for auto-update functionality
 let currentMarkers = [];
+let currentPinsData = []; // Store current pins data with their types for zoom updates
 let previousPinsData = null;
 let previousPins = [];
 let updateInterval = null;
@@ -71,10 +72,31 @@ L.tileLayer(
     },
 ).addTo(map);
 
-// Custom icon creator function
-function createCustomIcon(color) {
+// Base icon sizes (these will be scaled based on zoom)
+const BASE_ICON_WIDTH = 25;
+const BASE_ICON_HEIGHT = 35;
+
+// Function to calculate scale factor based on zoom level
+function getScaleFactorForZoom(zoom) {
+    // Scale pins based on zoom level
+    // At min zoom (10), scale = 0.5
+    // At initial zoom (13), scale = 1.0
+    // At max zoom (19), scale = 1.8
+    const minScale = 0.5;
+    const maxScale = 1.5;
+    const normalizedZoom =
+        (zoom - MAP_MIN_ZOOM) / (MAP_MAX_ZOOM - MAP_MIN_ZOOM);
+    return minScale + (maxScale - minScale) * normalizedZoom;
+}
+
+// Custom icon creator function with zoom-based scaling
+function createCustomIcon(color, scaleFactor = 1.0) {
     const colorValue = color === "new" ? PIN_COLOR_NEW : PIN_COLOR_OLD;
     const opacity = 1;
+
+    // Calculate scaled sizes
+    const width = BASE_ICON_WIDTH * scaleFactor;
+    const height = BASE_ICON_HEIGHT * scaleFactor;
 
     return L.divIcon({
         className: "custom-marker",
@@ -83,23 +105,27 @@ function createCustomIcon(color) {
                   fill="${colorValue}" stroke="#fff" stroke-width="1.5"/>
             <circle cx="12.5" cy="12.5" r="5" fill="#fff" opacity="0.9"/>
         </svg>`,
-        iconSize: [25, 35],
-        iconAnchor: [12.5, 35],
-        popupAnchor: [0, -35],
-        tooltipAnchor: [0, -25],
+        iconSize: [width, height],
+        iconAnchor: [width / 2, height],
+        popupAnchor: [0, -height],
+        tooltipAnchor: [0, -height * 0.71],
     });
+}
 
-    // return L.divIcon({
-    //     className: "custom-marker",
-    //     html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" opacity="${opacity}">
-    //         <circle cx="12" cy="12" r="10" fill="${colorValue}" stroke="#fff" stroke-width="2"/>
-    //         <circle cx="12" cy="12" r="4" fill="#fff" opacity="0.9"/>
-    //     </svg>`,
-    //     iconSize: [24, 24],
-    //     iconAnchor: [12, 24],
-    //     popupAnchor: [0, -12],
-    //     tooltipAnchor: [0, -12],
-    // });
+// Function to update all marker sizes based on current zoom
+function updateMarkerSizes() {
+    const currentZoom = map.getZoom();
+    const scaleFactor = getScaleFactorForZoom(currentZoom);
+
+    currentMarkers.forEach((markerObj, index) => {
+        if (currentPinsData[index]) {
+            const newIcon = createCustomIcon(
+                currentPinsData[index].type,
+                scaleFactor,
+            );
+            markerObj.marker.setIcon(newIcon);
+        }
+    });
 }
 
 // Function to fix doubly-encoded UTF-8 characters
@@ -108,15 +134,15 @@ function fixEncoding(str) {
 
     // Common character mappings for mis-encoded UTF-8
     const charMap = {
-        "É™": "ə",
-        "Ã¨": "è",
-        "Ã©": "é",
-        "Ã ": "à",
-        "Ã¹": "ù",
-        "Ã²": "ò",
-        "Ã¬": "ì",
-        "Ã´": "ô",
-        "Ã§": "ç",
+        "Ã‰â„¢": "É™",
+        "ÃƒÂ¨": "è",
+        "ÃƒÂ©": "é",
+        "Ãƒ ": "à",
+        "ÃƒÂ¹": "ù",
+        "ÃƒÂ²": "ò",
+        "ÃƒÂ¬": "ì",
+        "ÃƒÂ´": "ô",
+        "ÃƒÂ§": "ç",
     };
 
     // First, try to fix with character map
@@ -159,10 +185,11 @@ function fixEncoding(str) {
 
 // Function to clear all current markers from the map
 function clearMarkers() {
-    currentMarkers.forEach((marker) => {
-        map.removeLayer(marker);
+    currentMarkers.forEach((markerObj) => {
+        map.removeLayer(markerObj.marker);
     });
     currentMarkers = [];
+    currentPinsData = [];
 }
 
 // Function to show update indicator
@@ -223,14 +250,18 @@ async function loadMarkers() {
         // Clear existing markers
         clearMarkers();
 
+        // Get current scale factor based on zoom
+        const currentZoom = map.getZoom();
+        const scaleFactor = getScaleFactorForZoom(currentZoom);
+
         // Add new markers
         pins.forEach((pin) => {
             // Fix encoding for name and description
             const fixedName = fixEncoding(pin.name);
             const fixedDescription = fixEncoding(pin.description);
 
-            // Create custom icon based on type
-            const icon = createCustomIcon(pin.type);
+            // Create custom icon based on type and current zoom
+            const icon = createCustomIcon(pin.type, scaleFactor);
 
             // Create marker
             const marker = L.marker([pin.latitude, pin.longitude], {
@@ -270,8 +301,9 @@ async function loadMarkers() {
                 });
             });
 
-            // Store marker reference
-            currentMarkers.push(marker);
+            // Store marker reference with its type
+            currentMarkers.push({ marker: marker, type: pin.type });
+            currentPinsData.push({ type: pin.type });
         });
 
         // Update previous data
@@ -349,6 +381,11 @@ function stopAutoUpdate() {
         console.log("Auto-update stopped");
     }
 }
+
+// Add zoom event listener to update marker sizes
+map.on("zoomend", function () {
+    updateMarkerSizes();
+});
 
 // Load markers when page is ready
 document.addEventListener("DOMContentLoaded", function () {

@@ -81,4 +81,3 @@ if (typeof module !== "undefined" && module.exports) {
         AUTO_UPDATE_INTERVAL,
     };
 }
-    
