@@ -3,8 +3,8 @@ function applyConstants() {
     const root = document.documentElement;
     root.style.setProperty("--title-box-color", TITLE_BOX_COLOR);
     root.style.setProperty("--title-text-color", TITLE_TEXT_COLOR);
-    root.style.setProperty("--pin-color-green", PIN_COLOR_GREEN);
-    root.style.setProperty("--pin-color-purple", PIN_COLOR_PURPLE);
+    root.style.setProperty("--pin-color-new", PIN_COLOR_NEW);
+    root.style.setProperty("--pin-color-old", PIN_COLOR_OLD);
     root.style.setProperty("--pin-width", PIN_WIDTH + "px");
     root.style.setProperty("--pin-height", PIN_HEIGHT + "px");
     root.style.setProperty("--pin-border-width", PIN_BORDER_WIDTH + "px");
@@ -12,12 +12,12 @@ function applyConstants() {
     root.style.setProperty("--tooltip-background", TOOLTIP_BACKGROUND);
     root.style.setProperty("--tooltip-text-color", TOOLTIP_TEXT_COLOR);
     root.style.setProperty(
-        "--tooltip-title-color-green",
-        TOOLTIP_TITLE_COLOR_GREEN,
+        "--tooltip-title-color-new",
+        TOOLTIP_TITLE_COLOR_NEW,
     );
     root.style.setProperty(
-        "--tooltip-title-color-purple",
-        TOOLTIP_TITLE_COLOR_PURPLE,
+        "--tooltip-title-color-old",
+        TOOLTIP_TITLE_COLOR_OLD,
     );
 
     // Set the title text
@@ -73,7 +73,7 @@ L.tileLayer(
 
 // Custom icon creator function
 function createCustomIcon(color) {
-    const colorValue = color === "green" ? PIN_COLOR_GREEN : PIN_COLOR_PURPLE;
+    const colorValue = color === "new" ? PIN_COLOR_NEW : PIN_COLOR_OLD;
     const opacity = 1;
 
     return L.divIcon({
@@ -100,6 +100,25 @@ function createCustomIcon(color) {
     //     popupAnchor: [0, -12],
     //     tooltipAnchor: [0, -12],
     // });
+}
+
+// Function to fix doubly-encoded UTF-8 characters
+function fixEncoding(str) {
+    if (!str) return str;
+    try {
+        // Convert the string to bytes as if it were Latin-1, then decode as UTF-8
+        const encoder = new TextEncoder();
+        const decoder = new TextDecoder("utf-8");
+
+        // First, encode the string treating each char code as a byte
+        const bytes = new Uint8Array(str.split("").map((c) => c.charCodeAt(0)));
+
+        // Then decode as UTF-8
+        return decoder.decode(bytes);
+    } catch (e) {
+        // If decoding fails, return original string
+        return str;
+    }
 }
 
 // Function to clear all current markers from the map
@@ -153,7 +172,7 @@ async function loadMarkers() {
         if (previousPinsData !== null) {
             let message = "● Markers updated";
             if (newPins.length > 0) {
-                message = `● New pin: ${newPins[0].name}`;
+                message = `● New pin: ${fixEncoding(newPins[0].name)}`;
             }
             showUpdateIndicator(message);
             console.log("Pins data updated - refreshing markers");
@@ -170,19 +189,23 @@ async function loadMarkers() {
 
         // Add new markers
         pins.forEach((pin) => {
+            // Fix encoding for name and description
+            const fixedName = fixEncoding(pin.name);
+            const fixedDescription = fixEncoding(pin.description);
+
             // Create custom icon based on type
             const icon = createCustomIcon(pin.type);
 
             // Create marker
             const marker = L.marker([pin.latitude, pin.longitude], {
                 icon: icon,
-                title: pin.name,
+                title: fixedName,
             }).addTo(map);
 
             // Create tooltip content
             const tooltipContent = `
-                <div class="tooltip-title ${pin.type}">${pin.name}</div>
-                <div class="tooltip-description">${pin.description}</div>
+                <div class="tooltip-title ${pin.type}">${fixedName}</div>
+                <div class="tooltip-description">${fixedDescription}</div>
             `;
 
             // Bind tooltip that shows on hover

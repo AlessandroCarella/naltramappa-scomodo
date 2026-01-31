@@ -7,8 +7,8 @@ const TITLE_BOX_COLOR = "#000000"; // Red color for the title box
 const TITLE_TEXT_COLOR = "#007d8c"; // White text
 
 // Pin Colors
-const PIN_COLOR_GREEN = "#007d8c";
-const PIN_COLOR_PURPLE = "#e6303f";
+const PIN_COLOR_NEW = "#007d8c";
+const PIN_COLOR_OLD = "#e6303f";
 
 // Pin Sizes
 const PIN_WIDTH = 30;
@@ -19,8 +19,8 @@ const PIN_BORDER_COLOR = "#ffffff";
 // Tooltip Colors
 const TOOLTIP_BACKGROUND = "rgba(0, 0, 0, 0.9)";
 const TOOLTIP_TEXT_COLOR = "#e5e7eb";
-const TOOLTIP_TITLE_COLOR_GREEN = "#007d8c";
-const TOOLTIP_TITLE_COLOR_PURPLE = "#e6303f";
+const TOOLTIP_TITLE_COLOR_NEW = "#007d8c";
+const TOOLTIP_TITLE_COLOR_OLD = "#e6303f";
 
 // Map Initial Settings
 const MAP_CENTER_LAT = 41.1171;
@@ -52,16 +52,16 @@ if (typeof module !== "undefined" && module.exports) {
         TITLE_TEXT_HOVER,
         TITLE_BOX_COLOR,
         TITLE_TEXT_COLOR,
-        PIN_COLOR_GREEN,
-        PIN_COLOR_PURPLE,
+        PIN_COLOR_NEW,
+        PIN_COLOR_OLD,
         PIN_WIDTH,
         PIN_HEIGHT,
         PIN_BORDER_WIDTH,
         PIN_BORDER_COLOR,
         TOOLTIP_BACKGROUND,
         TOOLTIP_TEXT_COLOR,
-        TOOLTIP_TITLE_COLOR_GREEN,
-        TOOLTIP_TITLE_COLOR_PURPLE,
+        TOOLTIP_TITLE_COLOR_NEW,
+        TOOLTIP_TITLE_COLOR_OLD,
         MAP_CENTER_LAT,
         MAP_CENTER_LNG,
         MAP_INITIAL_ZOOM,
@@ -81,3 +81,4 @@ if (typeof module !== "undefined" && module.exports) {
         AUTO_UPDATE_INTERVAL,
     };
 }
+    
