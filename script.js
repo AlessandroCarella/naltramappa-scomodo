@@ -105,18 +105,54 @@ function createCustomIcon(color) {
 // Function to fix doubly-encoded UTF-8 characters
 function fixEncoding(str) {
     if (!str) return str;
+
+    // Common character mappings for mis-encoded UTF-8
+    const charMap = {
+        "É™": "ə",
+        "Ã¨": "è",
+        "Ã©": "é",
+        "Ã ": "à",
+        "Ã¹": "ù",
+        "Ã²": "ò",
+        "Ã¬": "ì",
+        "Ã´": "ô",
+        "Ã§": "ç",
+    };
+
+    // First, try to fix with character map
+    let fixed = str;
+    for (const [wrong, correct] of Object.entries(charMap)) {
+        fixed = fixed.replace(new RegExp(wrong, "g"), correct);
+    }
+
+    // If we made replacements, return the fixed string
+    if (fixed !== str) {
+        return fixed;
+    }
+
+    // Otherwise, try UTF-8 decoding
     try {
-        // Convert the string to bytes as if it were Latin-1, then decode as UTF-8
-        const encoder = new TextEncoder();
+        const bytes = new Uint8Array(
+            str.split("").map((c) => c.charCodeAt(0) & 0xff),
+        );
         const decoder = new TextDecoder("utf-8");
+        const decoded = decoder.decode(bytes);
 
-        // First, encode the string treating each char code as a byte
-        const bytes = new Uint8Array(str.split("").map((c) => c.charCodeAt(0)));
+        // Check if the result looks better (fewer replacement characters)
+        const originalReplacements = (str.match(/�/g) || []).length;
+        const decodedReplacements = (decoded.match(/�/g) || []).length;
 
-        // Then decode as UTF-8
-        return decoder.decode(bytes);
+        if (
+            decodedReplacements < originalReplacements ||
+            originalReplacements === 0
+        ) {
+            return decoded;
+        }
+
+        return str;
     } catch (e) {
         // If decoding fails, return original string
+        console.warn("Encoding fix failed for:", str, e);
         return str;
     }
 }
