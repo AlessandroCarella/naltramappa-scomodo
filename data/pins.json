@@ -1,18 +1,569 @@
 [
-  {
-    "name": "La Feltrinelli",
-    "latitude": 41.1225422,
-    "longitude": 16.8712829,
-    "description": "La Feltrinelli, 119, Via Melo da Bari, Murat, Municipio 1, Bari, Puglia, 70121, Italia",
-    "type": "purple",
-    "category": "addresstype"
-  },
-  {
-    "name": "Caff\u00e8 Portineria",
-    "latitude": 41.1241993,
-    "longitude": 16.8682278,
-    "description": "Caff\u00e8 Portineria, 58A, Via Roberto da Bari, Murat, Municipio 1, Bari, Puglia, 70122, Italia",
-    "type": "purple",
-    "category": "addresstype"
-  }
+    {
+        "name": "Spazio 13",
+        "description": "",
+        "latitude": 41.1246725,
+        "longitude": 16.8560676,
+        "type": "old"
+    },
+    {
+        "name": "Prinz zaum",
+        "description": "",
+        "latitude": 41.121894044267925,
+        "longitude": 16.87564816174823,
+        "type": "old"
+    },
+    {
+        "name": "Officina degli esordi",
+        "description": "",
+        "latitude": 41.1252592,
+        "longitude": 16.8601813,
+        "type": "old"
+    },
+    {
+        "name": "Bread and roses",
+        "description": "",
+        "latitude": 41.10658030286168,
+        "longitude": 16.886579137545002,
+        "type": "old"
+    },
+    {
+        "name": "Ex caserma Rossani",
+        "description": "",
+        "latitude": 41.114737,
+        "longitude": 16.8716544,
+        "type": "old"
+    },
+    {
+        "name": "Piccolo Bar",
+        "description": "",
+        "latitude": 41.12341513470912,
+        "longitude": 16.875530177823432,
+        "type": "old"
+    },
+    {
+        "name": "MiXED lgbtqia+",
+        "description": "",
+        "latitude": 41.1211898952258,
+        "longitude": 16.87582101575211,
+        "type": "old"
+    },
+    {
+        "name": "Zona franka",
+        "description": "",
+        "latitude": 41.12144658472404,
+        "longitude": 16.880246328657993,
+        "type": "old"
+    },
+    {
+        "name": "Campus",
+        "description": "",
+        "latitude": 41.10967263119022,
+        "longitude": 16.87983793330308,
+        "type": "old"
+    },
+    {
+        "name": "Parco Rossani",
+        "description": "",
+        "latitude": 41.1158968,
+        "longitude": 16.8704457,
+        "type": "old"
+    },
+    {
+        "name": "Spazio Murat",
+        "description": "",
+        "latitude": 41.126522,
+        "longitude": 16.8716853,
+        "type": "old"
+    },
+    {
+        "name": "Storie del vecchio sud",
+        "description": "",
+        "latitude": 41.1131195,
+        "longitude": 16.8706468,
+        "type": "old"
+    },
+    {
+        "name": "Caf\u00c3\u00a8 portineria",
+        "description": "",
+        "latitude": 41.1245731777968,
+        "longitude": 16.868377949327428,
+        "type": "old"
+    },
+    {
+        "name": "Ekoin\u00c3\u00a8",
+        "description": "",
+        "latitude": 41.1077125,
+        "longitude": 16.8637537,
+        "type": "old"
+    },
+    {
+        "name": "Zamp\u00c9\u2122 Mostruos\u00c9\u2122",
+        "description": "",
+        "latitude": 41.12234892256071,
+        "longitude": 16.86225969274399,
+        "type": "old"
+    },
+    {
+        "name": "Bari vecchia",
+        "description": "",
+        "latitude": 41.1295686,
+        "longitude": 16.869599,
+        "type": "old"
+    },
+    {
+        "name": "Circolo Arci",
+        "description": "",
+        "latitude": 41.12615843543517,
+        "longitude": 16.86591651967947,
+        "type": "old"
+    },
+    {
+        "name": "ExPost Moderno",
+        "description": "",
+        "latitude": 41.12720155341268,
+        "longitude": 16.852415030617234,
+        "type": "old"
+    },
+    {
+        "name": "ODE",
+        "description": "",
+        "latitude": 41.125427038765764,
+        "longitude": 16.86030337578236,
+        "type": "old"
+    },
+    {
+        "name": "Teatro Kismet",
+        "description": "",
+        "latitude": 41.1095339,
+        "longitude": 16.8385175,
+        "type": "old"
+    },
+    {
+        "name": "Umbertino",
+        "description": "",
+        "latitude": 41.1219291,
+        "longitude": 16.8742368,
+        "type": "old"
+    },
+    {
+        "name": "Dipartimento di fisica",
+        "description": "",
+        "latitude": 41.1081053,
+        "longitude": 16.8836911,
+        "type": "old"
+    },
+    {
+        "name": "Feltrinelli",
+        "description": "",
+        "latitude": 41.1225422,
+        "longitude": 16.8712829,
+        "type": "old"
+    },
+    {
+        "name": "Kursaal Santalucia",
+        "description": "",
+        "latitude": 41.1237074,
+        "longitude": 16.8755875,
+        "type": "old"
+    },
+    {
+        "name": "Torre quetta",
+        "description": "",
+        "latitude": 41.11271924653431,
+        "longitude": 16.914471444773646,
+        "type": "old"
+    },
+    {
+        "name": "Ateneo",
+        "description": "",
+        "latitude": 41.1210943,
+        "longitude": 16.8690626,
+        "type": "old"
+    },
+    {
+        "name": "El Chiringuito",
+        "description": "",
+        "latitude": 41.1258931,
+        "longitude": 16.8742226,
+        "type": "old"
+    },
+    {
+        "name": "Frequenza libera",
+        "description": "",
+        "latitude": 41.1087106,
+        "longitude": 16.8796868,
+        "type": "old"
+    },
+    {
+        "name": "Liberrima",
+        "description": "",
+        "latitude": 41.124051,
+        "longitude": 16.8717065,
+        "type": "old"
+    },
+    {
+        "name": "Norcineria",
+        "description": "",
+        "latitude": 41.12337751728451,
+        "longitude": 16.876027865731942,
+        "type": "old"
+    },
+    {
+        "name": "Orto sociale Campagneros",
+        "description": "",
+        "latitude": 41.09702120821604,
+        "longitude": 16.88562208844041,
+        "type": "old"
+    },
+    {
+        "name": "Pane e pomodoro",
+        "description": "",
+        "latitude": 41.118344,
+        "longitude": 16.891917,
+        "type": "old"
+    },
+    {
+        "name": "Teatro Margherita",
+        "description": "",
+        "latitude": 41.1263619,
+        "longitude": 16.872861,
+        "type": "old"
+    },
+    {
+        "name": "Voga Art Project",
+        "description": "",
+        "latitude": 41.12646226774262,
+        "longitude": 16.84874204640919,
+        "type": "old"
+    },
+    {
+        "name": "Arcimboldo",
+        "description": "",
+        "latitude": 41.1631624,
+        "longitude": 16.7473564,
+        "type": "old"
+    },
+    {
+        "name": "Biglietteria",
+        "description": "",
+        "latitude": 41.123855288361646,
+        "longitude": 16.875569564445904,
+        "type": "old"
+    },
+    {
+        "name": "Cabaret voltaire",
+        "description": "",
+        "latitude": 41.1124195,
+        "longitude": 16.8731886,
+        "type": "old"
+    },
+    {
+        "name": "Giardino Mimmo Bucci",
+        "description": "",
+        "latitude": 41.1195282,
+        "longitude": 16.8536371,
+        "type": "old"
+    },
+    {
+        "name": "Libreria Spine",
+        "description": "",
+        "latitude": 41.125872162836615,
+        "longitude": 16.859796792469893,
+        "type": "old"
+    },
+    {
+        "name": "Organic",
+        "description": "",
+        "latitude": 41.12341852475953,
+        "longitude": 16.876750033114963,
+        "type": "old"
+    },
+    {
+        "name": "Piazza del Ferrarese",
+        "description": "",
+        "latitude": 41.128336,
+        "longitude": 16.8722057,
+        "type": "old"
+    },
+    {
+        "name": "Pinacoteca Corrado Giacquinto",
+        "description": "",
+        "latitude": 41.121434540268744,
+        "longitude": 16.88158619512904,
+        "type": "old"
+    },
+    {
+        "name": "Accademia del Cinema di Enziteto",
+        "description": "",
+        "latitude": 41.1478573,
+        "longitude": 16.7405872,
+        "type": "old"
+    },
+    {
+        "name": "Accademia di belle arti",
+        "description": "",
+        "latitude": 41.11136372509544,
+        "longitude": 16.87640159697652,
+        "type": "old"
+    },
+    {
+        "name": "AncheCinema",
+        "description": "",
+        "latitude": 41.1179704,
+        "longitude": 16.8642494,
+        "type": "old"
+    },
+    {
+        "name": "Bari Ludens",
+        "description": "",
+        "latitude": 41.11336613442185,
+        "longitude": 16.87291289986268,
+        "type": "old"
+    },
+    {
+        "name": "Biblioteca Gaetano Richetti",
+        "description": "",
+        "latitude": 41.11993828740921,
+        "longitude": 16.86990448452394,
+        "type": "old"
+    },
+    {
+        "name": "Biblioteca Lombardi",
+        "description": "",
+        "latitude": 41.120516890488155,
+        "longitude": 16.78997499246642,
+        "type": "old"
+    },
+    {
+        "name": "Biblioteca dei ragazzi",
+        "description": "",
+        "latitude": 41.10265950709727,
+        "longitude": 16.87502641574076,
+        "type": "old"
+    },
+    {
+        "name": "Bosco di cancello rotto",
+        "description": "",
+        "latitude": 41.0987991,
+        "longitude": 16.8687698,
+        "type": "old"
+    },
+    {
+        "name": "Caff\u00c3\u00a8 noir",
+        "description": "",
+        "latitude": 41.12703266373722,
+        "longitude": 16.871737674143223,
+        "type": "old"
+    },
+    {
+        "name": "Calamandrei",
+        "description": "",
+        "latitude": 41.06873134965177,
+        "longitude": 16.86430261968942,
+        "type": "old"
+    },
+    {
+        "name": "Castello Svevo",
+        "description": "",
+        "latitude": 41.128111516922296,
+        "longitude": 16.866466311632706,
+        "type": "old"
+    },
+    {
+        "name": "Cicchetteria",
+        "description": "",
+        "latitude": 41.12860055150233,
+        "longitude": 16.871057061785486,
+        "type": "old"
+    },
+    {
+        "name": "Cinema Galleria",
+        "description": "",
+        "latitude": 41.11928927430121,
+        "longitude": 16.867967155223145,
+        "type": "old"
+    },
+    {
+        "name": "Cineporto",
+        "description": "",
+        "latitude": 41.1370541,
+        "longitude": 16.8387754,
+        "type": "old"
+    },
+    {
+        "name": "Corso vittorio emanuele",
+        "description": "",
+        "latitude": 41.12659449793266,
+        "longitude": 16.86730490781312,
+        "type": "old"
+    },
+    {
+        "name": "Finibus Terrae",
+        "description": "",
+        "latitude": 41.120425087437454,
+        "longitude": 16.87674114478415,
+        "type": "old"
+    },
+    {
+        "name": "Fuori binaria",
+        "description": "",
+        "latitude": 41.1515082,
+        "longitude": 16.7666684,
+        "type": "old"
+    },
+    {
+        "name": "Ianus",
+        "description": "",
+        "latitude": 41.1079652646532,
+        "longitude": 16.862681672970787,
+        "type": "old"
+    },
+    {
+        "name": "Largo Ciaia",
+        "description": "",
+        "latitude": 41.1154101,
+        "longitude": 16.8727067,
+        "type": "old"
+    },
+    {
+        "name": "Largo adua",
+        "description": "",
+        "latitude": 41.1237316,
+        "longitude": 16.8760275,
+        "type": "old"
+    },
+    {
+        "name": "Libreria 101",
+        "description": "",
+        "latitude": 41.1227851,
+        "longitude": 16.8671358,
+        "type": "old"
+    },
+    {
+        "name": "Libreria Laterza",
+        "description": "",
+        "latitude": 41.12277120894988,
+        "longitude": 16.87010121521149,
+        "type": "old"
+    },
+    {
+        "name": "Luoghi comuni",
+        "description": "",
+        "latitude": 41.09916397769848,
+        "longitude": 16.86665306308122,
+        "type": "old"
+    },
+    {
+        "name": "Millelibri liberia",
+        "description": "",
+        "latitude": 41.11753875342157,
+        "longitude": 16.876604322652483,
+        "type": "old"
+    },
+    {
+        "name": "Muraglia",
+        "description": "",
+        "latitude": 41.12804373185526,
+        "longitude": 16.873160636207857,
+        "type": "old"
+    },
+    {
+        "name": "Nevermind club",
+        "description": "",
+        "latitude": 41.103593002260304,
+        "longitude": 16.85870724642707,
+        "type": "old"
+    },
+    {
+        "name": "Nuovo Splendor",
+        "description": "",
+        "latitude": 41.1106541,
+        "longitude": 16.8699432,
+        "type": "old"
+    },
+    {
+        "name": "OKAY",
+        "description": "",
+        "latitude": 41.10772150069555,
+        "longitude": 16.86206086432247,
+        "type": "old"
+    },
+    {
+        "name": "Officine clandestine",
+        "description": "",
+        "latitude": 41.111298921410004,
+        "longitude": 16.875358607766483,
+        "type": "old"
+    },
+    {
+        "name": "Parco gargasole",
+        "description": "",
+        "latitude": 41.1140003,
+        "longitude": 16.8711249,
+        "type": "old"
+    },
+    {
+        "name": "Petruzzelli",
+        "description": "",
+        "latitude": 41.1235649,
+        "longitude": 16.873158,
+        "type": "old"
+    },
+    {
+        "name": "Piazza Mercantile",
+        "description": "",
+        "latitude": 41.1278569,
+        "longitude": 16.8725188,
+        "type": "old"
+    },
+    {
+        "name": "Piazza umberto",
+        "description": "",
+        "latitude": 41.12109759298002,
+        "longitude": 16.87077116913902,
+        "type": "old"
+    },
+    {
+        "name": "Piccinni",
+        "description": "",
+        "latitude": 41.1255127,
+        "longitude": 16.8674783,
+        "type": "old"
+    },
+    {
+        "name": "Policlinico",
+        "description": "",
+        "latitude": 41.112726,
+        "longitude": 16.8620525,
+        "type": "old"
+    },
+    {
+        "name": "Punto X",
+        "description": "",
+        "latitude": 41.0984624,
+        "longitude": 16.8517052,
+        "type": "old"
+    },
+    {
+        "name": "Stazione",
+        "description": "",
+        "latitude": 41.1179496,
+        "longitude": 16.8702402,
+        "type": "old"
+    },
+    {
+        "name": "The magic spot",
+        "description": "",
+        "latitude": 41.11734764424779,
+        "longitude": 16.87657784894823,
+        "type": "old"
+    },
+    {
+        "name": "Vallisa",
+        "description": "",
+        "latitude": 41.1271214,
+        "longitude": 16.8714034,
+        "type": "old"
+    }
 ]

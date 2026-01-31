@@ -47,8 +47,7 @@ class CafeSearchApp:
                 'latitude': float(place.get('lat', 0)),
                 'longitude': float(place.get('lon', 0)),
                 'description': place.get('display_name', ''),
-                'type': 'purple',
-                'category': 'addresstype'
+                'type': 'new'
             }
             
             return result
