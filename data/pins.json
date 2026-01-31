@@ -1,567 +1,567 @@
 [
     {
         "name": "Spazio 13",
-        "description": "",
+        "description": "Community hub nato nel 2017 dalla riconversione dell'ex scuola media Melo da Bari nel quartiere Libert\u00c3\u00a0. Centro di innovazione sociale che ospita oltre 30 associazioni e si occupa di cultura, arte performativa, produzione musicale, formazione e inclusione sociale. Gestito da un'associazione di giovani organizzazioni territoriali",
         "latitude": 41.1246725,
         "longitude": 16.8560676,
         "type": "old"
     },
     {
         "name": "Prinz zaum",
-        "description": "",
+        "description": "Spazio culturale indipendente nel centro storico, punto di riferimento per la scena underground e alternativa barese. Ospita concerti, eventi culturali e iniziative artistiche",
         "latitude": 41.121894044267925,
         "longitude": 16.87564816174823,
         "type": "old"
     },
     {
         "name": "Officina degli esordi",
-        "description": "",
+        "description": "Spazio culturale dedicato ai giovani artisti emergenti, laboratorio creativo per le nuove generazioni del panorama artistico barese",
         "latitude": 41.1252592,
         "longitude": 16.8601813,
         "type": "old"
     },
     {
         "name": "Bread and roses",
-        "description": "",
+        "description": "Libreria caffetteria indipendente, punto di ritrovo culturale che unisce la passione per i libri con eventi letterari e culturali in un ambiente accogliente",
         "latitude": 41.10658030286168,
         "longitude": 16.886579137545002,
         "type": "old"
     },
     {
         "name": "Ex caserma Rossani",
-        "description": "",
+        "description": "Ex struttura militare riconvertita in polo culturale e creativo. Spazio per eventi, mostre e attivit\u00c3\u00a0 giovanili nel quartiere Carrassi",
         "latitude": 41.114737,
         "longitude": 16.8716544,
         "type": "old"
     },
     {
         "name": "Piccolo Bar",
-        "description": "",
+        "description": "Storico bar del centro, punto di ritrovo tradizionale della vita sociale barese",
         "latitude": 41.12341513470912,
         "longitude": 16.875530177823432,
         "type": "old"
     },
     {
         "name": "MiXED lgbtqia+",
-        "description": "",
+        "description": "Spazio inclusivo e centro culturale dedicato alla comunit\u00c3\u00a0 LGBTQIA+, punto di riferimento per eventi, incontri e iniziative di sensibilizzazione",
         "latitude": 41.1211898952258,
         "longitude": 16.87582101575211,
         "type": "old"
     },
     {
         "name": "Zona franka",
-        "description": "",
+        "description": "Centro sociale autogestito, spazio di aggregazione e cultura indipendente che ospita concerti, eventi e iniziative sociali",
         "latitude": 41.12144658472404,
         "longitude": 16.880246328657993,
         "type": "old"
     },
     {
         "name": "Campus",
-        "description": "",
+        "description": "Area universitaria del Politecnico di Bari, polo di aggregazione studentesca e hub per eventi culturali e di formazione",
         "latitude": 41.10967263119022,
         "longitude": 16.87983793330308,
         "type": "old"
     },
     {
         "name": "Parco Rossani",
-        "description": "",
+        "description": "Parco pubblico urbano nel quartiere Carrassi, area verde per il tempo libero e punto di incontro per la comunit\u00c3\u00a0 locale",
         "latitude": 41.1158968,
         "longitude": 16.8704457,
         "type": "old"
     },
     {
         "name": "Spazio Murat",
-        "description": "",
+        "description": "Polo culturale nel cuore del quartiere Murat, sede di eventi artistici, mostre ed esposizioni temporanee",
         "latitude": 41.126522,
         "longitude": 16.8716853,
         "type": "old"
     },
     {
         "name": "Storie del vecchio sud",
-        "description": "",
+        "description": "Libreria indipendente specializzata in narrativa del Sud Italia, punto di riferimento per la cultura meridionale e incontri letterari",
         "latitude": 41.1131195,
         "longitude": 16.8706468,
         "type": "old"
     },
     {
         "name": "Caf\u00c3\u00a8 portineria",
-        "description": "",
+        "description": "Caffetteria culturale, spazio informale per incontri, coworking e piccoli eventi nel quartiere universitario",
         "latitude": 41.1245731777968,
         "longitude": 16.868377949327428,
         "type": "old"
     },
     {
         "name": "Ekoin\u00c3\u00a8",
-        "description": "",
+        "description": "Spazio ecologico e sostenibile dedicato alla cultura ambientale, punto vendita e luogo di incontro per pratiche eco-sostenibili",
         "latitude": 41.1077125,
         "longitude": 16.8637537,
         "type": "old"
     },
     {
         "name": "Zamp\u00c9\u2122 Mostruos\u00c9\u2122",
-        "description": "",
+        "description": "Locale alternativo e creativo, punto di riferimento per la scena indie e underground barese con concerti ed eventi culturali",
         "latitude": 41.12234892256071,
         "longitude": 16.86225969274399,
         "type": "old"
     },
     {
         "name": "Bari vecchia",
-        "description": "",
+        "description": "Centro storico di Bari, caratterizzato da un labirinto di vicoli stretti e piazzette. Ospita oltre 40 chiese tra cui la Basilica di San Nicola e la Cattedrale di San Sabino. Cuore pulsante della tradizione barese con botteghe artigiane e la famosa strada delle orecchiette",
         "latitude": 41.1295686,
         "longitude": 16.869599,
         "type": "old"
     },
     {
         "name": "Circolo Arci",
-        "description": "",
+        "description": "Circolo culturale ARCI, centro di aggregazione che promuove attivit\u00c3\u00a0 ricreative, culturali e sociali per la comunit\u00c3\u00a0",
         "latitude": 41.12615843543517,
         "longitude": 16.86591651967947,
         "type": "old"
     },
     {
         "name": "ExPost Moderno",
-        "description": "",
+        "description": "Ex cinema trasformato in spazio polifunzionale per eventi culturali, concerti e proiezioni cinematografiche",
         "latitude": 41.12720155341268,
         "longitude": 16.852415030617234,
         "type": "old"
     },
     {
         "name": "ODE",
-        "description": "",
+        "description": "Officina degli Esordi - spazio dedicato ai giovani talenti emergenti nelle arti performative e visive",
         "latitude": 41.125427038765764,
         "longitude": 16.86030337578236,
         "type": "old"
     },
     {
         "name": "Teatro Kismet",
-        "description": "",
+        "description": "Teatro Stabile d'Innovazione fondato nel 1981, dal 1989 ospitato in un ex capannone industriale. Centro di produzione teatrale specializzato in teatro per ragazzi e giovani, polo culturale che unisce teatro, danza, musica contemporanea e arti visive",
         "latitude": 41.1095339,
         "longitude": 16.8385175,
         "type": "old"
     },
     {
         "name": "Umbertino",
-        "description": "",
+        "description": "Quartiere elegante di Bari costruito tra fine '800 e inizio '900, caratterizzato da architettura umbertina e liberty, cuore commerciale e culturale della citt\u00c3\u00a0 moderna",
         "latitude": 41.1219291,
         "longitude": 16.8742368,
         "type": "old"
     },
     {
         "name": "Dipartimento di fisica",
-        "description": "",
+        "description": "Sede del Dipartimento di Fisica dell'Universit\u00c3\u00a0 di Bari, polo di ricerca scientifica e formazione universitaria nel campus di fisica",
         "latitude": 41.1081053,
         "longitude": 16.8836911,
         "type": "old"
     },
     {
         "name": "Feltrinelli",
-        "description": "",
+        "description": "Storica libreria Feltrinelli nel centro di Bari, punto di riferimento per la cultura libraria con ampia selezione di libri ed eventi letterari",
         "latitude": 41.1225422,
         "longitude": 16.8712829,
         "type": "old"
     },
     {
         "name": "Kursaal Santalucia",
-        "description": "",
+        "description": "Ex struttura balneare storica sul lungomare, oggi spazio per eventi e manifestazioni culturali vista mare",
         "latitude": 41.1237074,
         "longitude": 16.8755875,
         "type": "old"
     },
     {
         "name": "Torre quetta",
-        "description": "",
+        "description": "Antica torre di avvistamento costiera nella zona orientale di Bari, testimonianza delle fortificazioni marittime storiche",
         "latitude": 41.11271924653431,
         "longitude": 16.914471444773646,
         "type": "old"
     },
     {
         "name": "Ateneo",
-        "description": "",
+        "description": "Complesso dell'Universit\u00c3\u00a0 degli Studi di Bari Aldo Moro, principale polo universitario della citt\u00c3\u00a0 e centro della vita accademica pugliese",
         "latitude": 41.1210943,
         "longitude": 16.8690626,
         "type": "old"
     },
     {
         "name": "El Chiringuito",
-        "description": "",
+        "description": "Locale sul mare in stile chiringuito, punto di ritrovo per aperitivi e serate vista mare lungo il lungomare barese",
         "latitude": 41.1258931,
         "longitude": 16.8742226,
         "type": "old"
     },
     {
         "name": "Frequenza libera",
-        "description": "",
+        "description": "Radio comunitaria e spazio culturale indipendente, voce libera della citt\u00c3\u00a0 con programmazione musicale e culturale alternativa",
         "latitude": 41.1087106,
         "longitude": 16.8796868,
         "type": "old"
     },
     {
         "name": "Liberrima",
-        "description": "",
+        "description": "Libreria indipendente specializzata, spazio culturale che promuove la lettura e ospita presentazioni di libri ed eventi letterari",
         "latitude": 41.124051,
         "longitude": 16.8717065,
         "type": "old"
     },
     {
         "name": "Norcineria",
-        "description": "",
+        "description": "Negozio e laboratorio gastronomico specializzato in salumi e prodotti tipici, punto di riferimento per la tradizione culinaria",
         "latitude": 41.12337751728451,
         "longitude": 16.876027865731942,
         "type": "old"
     },
     {
         "name": "Orto sociale Campagneros",
-        "description": "",
+        "description": "Orto urbano comunitario gestito collettivamente, spazio di agricoltura sociale e sostenibilit\u00c3\u00a0 ambientale nel quartiere San Paolo",
         "latitude": 41.09702120821604,
         "longitude": 16.88562208844041,
         "type": "old"
     },
     {
         "name": "Pane e pomodoro",
-        "description": "",
+        "description": "Spiaggia urbana libera a pochi passi dal centro citt\u00c3\u00a0, amata da baresi e turisti. Nome ispirato alla tradizione locale di fare uno spuntino di pane e pomodoro in spiaggia. Offre sabbia fine, mare pulito, attrezzature fitness all'aperto e servizi balneari",
         "latitude": 41.118344,
         "longitude": 16.891917,
         "type": "old"
     },
     {
         "name": "Teatro Margherita",
-        "description": "",
+        "description": "Storico teatro in stile Liberty costruito nel 1914 su palafitte nel mare, ora trasformato in museo d'arte contemporanea (BAC). Prima struttura in cemento armato di Bari e unica in Europa per la costruzione su piloni. Riaperto nel 2018 dopo importanti lavori di restauro",
         "latitude": 41.1263619,
         "longitude": 16.872861,
         "type": "old"
     },
     {
         "name": "Voga Art Project",
-        "description": "",
+        "description": "Galleria d'arte contemporanea e spazio espositivo dedicato all'arte visiva contemporanea e sperimentale",
         "latitude": 41.12646226774262,
         "longitude": 16.84874204640919,
         "type": "old"
     },
     {
         "name": "Arcimboldo",
-        "description": "",
+        "description": "Spazio culturale nella periferia nord di Bari, centro di aggregazione per eventi artistici e sociali",
         "latitude": 41.1631624,
         "longitude": 16.7473564,
         "type": "old"
     },
     {
         "name": "Biglietteria",
-        "description": "",
+        "description": "Punto vendita biglietti per eventi culturali e spettacoli della citt\u00c3\u00a0",
         "latitude": 41.123855288361646,
         "longitude": 16.875569564445904,
         "type": "old"
     },
     {
         "name": "Cabaret voltaire",
-        "description": "",
+        "description": "Locale culturale dal nome ispirato al celebre Cabaret dada, spazio per eventi, concerti e performance artistiche",
         "latitude": 41.1124195,
         "longitude": 16.8731886,
         "type": "old"
     },
     {
         "name": "Giardino Mimmo Bucci",
-        "description": "",
+        "description": "Parco pubblico dedicato al giornalista Mimmo Bucci, area verde per il quartiere e luogo di memoria civica",
         "latitude": 41.1195282,
         "longitude": 16.8536371,
         "type": "old"
     },
     {
         "name": "Libreria Spine",
-        "description": "",
+        "description": "Libreria indipendente specializzata, punto di riferimento culturale con selezione curata e eventi letterari",
         "latitude": 41.125872162836615,
         "longitude": 16.859796792469893,
         "type": "old"
     },
     {
         "name": "Organic",
-        "description": "",
+        "description": "Negozio e caffetteria biologica, spazio dedicato ai prodotti naturali e all'alimentazione sostenibile",
         "latitude": 41.12341852475953,
         "longitude": 16.876750033114963,
         "type": "old"
     },
     {
         "name": "Piazza del Ferrarese",
-        "description": "",
+        "description": "Storica piazza nel centro storico, porta d'accesso a Bari Vecchia e cuore della movida serale. Nome dedicato a un mercante di Ferrara del XVII secolo",
         "latitude": 41.128336,
         "longitude": 16.8722057,
         "type": "old"
     },
     {
         "name": "Pinacoteca Corrado Giacquinto",
-        "description": "",
+        "description": "Pinacoteca provinciale che ospita importanti collezioni d'arte pugliese dal Medioevo all'Ottocento",
         "latitude": 41.121434540268744,
         "longitude": 16.88158619512904,
         "type": "old"
     },
     {
         "name": "Accademia del Cinema di Enziteto",
-        "description": "",
+        "description": "Scuola di cinema nel quartiere Enziteto, centro di formazione cinematografica e audiovisiva",
         "latitude": 41.1478573,
         "longitude": 16.7405872,
         "type": "old"
     },
     {
         "name": "Accademia di belle arti",
-        "description": "",
+        "description": "Accademia di Belle Arti di Bari, istituzione di alta formazione artistica specializzata in arti visive, design e nuove tecnologie",
         "latitude": 41.11136372509544,
         "longitude": 16.87640159697652,
         "type": "old"
     },
     {
         "name": "AncheCinema",
-        "description": "",
+        "description": "Sala cinematografica d'essai, punto di riferimento per il cinema d'autore e le rassegne cinematografiche indipendenti",
         "latitude": 41.1179704,
         "longitude": 16.8642494,
         "type": "old"
     },
     {
         "name": "Bari Ludens",
-        "description": "",
+        "description": "Ludoteca e spazio giochi, centro di aggregazione per bambini e famiglie con attivit\u00c3\u00a0 ludico-educative",
         "latitude": 41.11336613442185,
         "longitude": 16.87291289986268,
         "type": "old"
     },
     {
         "name": "Biblioteca Gaetano Richetti",
-        "description": "",
+        "description": "Biblioteca comunale del quartiere Libert\u00c3\u00a0, polo culturale con patrimonio librario e servizi per la comunit\u00c3\u00a0",
         "latitude": 41.11993828740921,
         "longitude": 16.86990448452394,
         "type": "old"
     },
     {
         "name": "Biblioteca Lombardi",
-        "description": "",
+        "description": "Biblioteca nella zona occidentale di Bari, centro di lettura e cultura per il territorio",
         "latitude": 41.120516890488155,
         "longitude": 16.78997499246642,
         "type": "old"
     },
     {
         "name": "Biblioteca dei ragazzi",
-        "description": "",
+        "description": "Biblioteca specializzata per bambini e ragazzi, spazio dedicato alla promozione della lettura giovanile",
         "latitude": 41.10265950709727,
         "longitude": 16.87502641574076,
         "type": "old"
     },
     {
         "name": "Bosco di cancello rotto",
-        "description": "",
+        "description": "Area verde urbana e polmone ecologico nella zona sud di Bari, parco naturale per attivit\u00c3\u00a0 all'aperto",
         "latitude": 41.0987991,
         "longitude": 16.8687698,
         "type": "old"
     },
     {
         "name": "Caff\u00c3\u00a8 noir",
-        "description": "",
+        "description": "Caffetteria storica nel centro, punto di ritrovo tradizionale con atmosfera elegante",
         "latitude": 41.12703266373722,
         "longitude": 16.871737674143223,
         "type": "old"
     },
     {
         "name": "Calamandrei",
-        "description": "",
+        "description": "Spazio culturale nella periferia sud dedicato alla comunit\u00c3\u00a0 locale e alle attivit\u00c3\u00a0 sociali",
         "latitude": 41.06873134965177,
         "longitude": 16.86430261968942,
         "type": "old"
     },
     {
         "name": "Castello Svevo",
-        "description": "",
+        "description": "Castello Normanno-Svevo costruito nel 1132 dal re Ruggero II, ricostruito da Federico II nel 1233. Imponente fortezza medievale circondata da fossato, oggi sede museale ed espositiva. Testimonianza di diverse dominazioni: normanna, sveva, angioina e aragonese",
         "latitude": 41.128111516922296,
         "longitude": 16.866466311632706,
         "type": "old"
     },
     {
         "name": "Cicchetteria",
-        "description": "",
+        "description": "Locale tipico nel centro storico specializzato in cicchetti e aperitivi tradizionali pugliesi",
         "latitude": 41.12860055150233,
         "longitude": 16.871057061785486,
         "type": "old"
     },
     {
         "name": "Cinema Galleria",
-        "description": "",
+        "description": "Storica sala cinematografica nel quartiere Murat, cinema d'essai e multisala per il cinema di qualit\u00c3\u00a0",
         "latitude": 41.11928927430121,
         "longitude": 16.867967155223145,
         "type": "old"
     },
     {
         "name": "Cineporto",
-        "description": "",
+        "description": "Polo cinematografico e audiovisivo, centro di produzione cinematografica e spazio per eventi del settore",
         "latitude": 41.1370541,
         "longitude": 16.8387754,
         "type": "old"
     },
     {
         "name": "Corso vittorio emanuele",
-        "description": "",
+        "description": "Principale arteria commerciale che separa Bari Vecchia dal quartiere Murat, cuore dello shopping e della vita cittadina",
         "latitude": 41.12659449793266,
         "longitude": 16.86730490781312,
         "type": "old"
     },
     {
         "name": "Finibus Terrae",
-        "description": "",
+        "description": "Spazio culturale dedicato a eventi, incontri e iniziative artistiche",
         "latitude": 41.120425087437454,
         "longitude": 16.87674114478415,
         "type": "old"
     },
     {
         "name": "Fuori binaria",
-        "description": "",
+        "description": "Laboratorio urbano nella periferia ovest, spazio di co-working, cultura e innovazione sociale gestito dalla comunit\u00c3\u00a0",
         "latitude": 41.1515082,
         "longitude": 16.7666684,
         "type": "old"
     },
     {
         "name": "Ianus",
-        "description": "",
+        "description": "Centro culturale polifunzionale per eventi, formazione e attivit\u00c3\u00a0 creative",
         "latitude": 41.1079652646532,
         "longitude": 16.862681672970787,
         "type": "old"
     },
     {
         "name": "Largo Ciaia",
-        "description": "",
+        "description": "Piazza storica del quartiere Carrassi, punto di incontro e snodo urbano",
         "latitude": 41.1154101,
         "longitude": 16.8727067,
         "type": "old"
     },
     {
         "name": "Largo adua",
-        "description": "",
+        "description": "Piazza nel quartiere Murat, zona verde con monumento ai caduti e area di aggregazione",
         "latitude": 41.1237316,
         "longitude": 16.8760275,
         "type": "old"
     },
     {
         "name": "Libreria 101",
-        "description": "",
+        "description": "Libreria indipendente specializzata, spazio culturale con eventi e presentazioni",
         "latitude": 41.1227851,
         "longitude": 16.8671358,
         "type": "old"
     },
     {
         "name": "Libreria Laterza",
-        "description": "",
+        "description": "Storica libreria Laterza fondata dalla celebre casa editrice barese, tempio della cultura e punto di riferimento letterario",
         "latitude": 41.12277120894988,
         "longitude": 16.87010121521149,
         "type": "old"
     },
     {
         "name": "Luoghi comuni",
-        "description": "",
+        "description": "Spazio sociale e culturale nella periferia sud, centro di aggregazione giovanile e attivit\u00c3\u00a0 comunitarie",
         "latitude": 41.09916397769848,
         "longitude": 16.86665306308122,
         "type": "old"
     },
     {
         "name": "Millelibri liberia",
-        "description": "",
+        "description": "Libreria generalista con ampia selezione di titoli, punto vendita tradizionale nel centro",
         "latitude": 41.11753875342157,
         "longitude": 16.876604322652483,
         "type": "old"
     },
     {
         "name": "Muraglia",
-        "description": "",
+        "description": "Antica muraglia medievale che cinge Bari Vecchia, passeggiata panoramica sul mare Adriatico con vista mozzafiato",
         "latitude": 41.12804373185526,
         "longitude": 16.873160636207857,
         "type": "old"
     },
     {
         "name": "Nevermind club",
-        "description": "",
+        "description": "Club musicale per concerti live e DJ set, punto di riferimento della scena musicale alternativa",
         "latitude": 41.103593002260304,
         "longitude": 16.85870724642707,
         "type": "old"
     },
     {
         "name": "Nuovo Splendor",
-        "description": "",
+        "description": "Cinema e spazio polifunzionale per proiezioni ed eventi culturali nel quartiere San Pasquale",
         "latitude": 41.1106541,
         "longitude": 16.8699432,
         "type": "old"
     },
     {
         "name": "OKAY",
-        "description": "",
+        "description": "Spazio creativo e culturale per eventi, workshop e attivit\u00c3\u00a0 artistiche",
         "latitude": 41.10772150069555,
         "longitude": 16.86206086432247,
         "type": "old"
     },
     {
         "name": "Officine clandestine",
-        "description": "",
+        "description": "Spazio autogestito per cultura underground, concerti punk e hardcore, eventi alternativi",
         "latitude": 41.111298921410004,
         "longitude": 16.875358607766483,
         "type": "old"
     },
     {
         "name": "Parco gargasole",
-        "description": "",
+        "description": "Parco pubblico nel quartiere Carrassi, area verde attrezzata per sport e tempo libero",
         "latitude": 41.1140003,
         "longitude": 16.8711249,
         "type": "old"
     },
     {
         "name": "Petruzzelli",
-        "description": "",
+        "description": "Quarto teatro pi\u00c3\u00b9 grande d'Italia e il pi\u00c3\u00b9 grande teatro privato d'Europa, inaugurato nel 1903. Storico tempio dell'opera e della cultura, distrutto da un incendio doloso nel 1991 e riaperto nel 2009 dopo una completa ricostruzione. Ospita stagioni liriche, concerti e balletti di livello internazionale",
         "latitude": 41.1235649,
         "longitude": 16.873158,
         "type": "old"
     },
     {
         "name": "Piazza Mercantile",
-        "description": "",
+        "description": "Piazza storica nel cuore di Bari Vecchia, centro della vita commerciale medievale con la Colonna della Giustizia",
         "latitude": 41.1278569,
         "longitude": 16.8725188,
         "type": "old"
     },
     {
         "name": "Piazza umberto",
-        "description": "",
+        "description": "Piazza principale del quartiere Murat, elegante salotto cittadino circondato da palazzi liberty",
         "latitude": 41.12109759298002,
         "longitude": 16.87077116913902,
         "type": "old"
     },
     {
         "name": "Piccinni",
-        "description": "",
+        "description": "Teatro Piccinni, storico teatro comunale di Bari del XVIII secolo dedicato al compositore Niccol\u00c3\u00b2 Piccinni",
         "latitude": 41.1255127,
         "longitude": 16.8674783,
         "type": "old"
     },
     {
         "name": "Policlinico",
-        "description": "",
+        "description": "Policlinico di Bari - principale ospedale universitario e centro di eccellenza sanitaria della Puglia",
         "latitude": 41.112726,
         "longitude": 16.8620525,
         "type": "old"
     },
     {
         "name": "Punto X",
-        "description": "",
+        "description": "Spazio culturale autogestito nella periferia, centro sociale per attivit\u00c3\u00a0 giovanili e iniziative comunitarie",
         "latitude": 41.0984624,
         "longitude": 16.8517052,
         "type": "old"
     },
     {
         "name": "Stazione",
-        "description": "",
+        "description": "Stazione Centrale di Bari, principale hub ferroviario della citt\u00c3\u00a0 e porta d'ingresso alla Puglia",
         "latitude": 41.1179496,
         "longitude": 16.8702402,
         "type": "old"
     },
     {
         "name": "The magic spot",
-        "description": "",
+        "description": "Locale e caffetteria, punto di ritrovo informale per studenti e giovani",
         "latitude": 41.11734764424779,
         "longitude": 16.87657784894823,
         "type": "old"
     },
     {
         "name": "Vallisa",
-        "description": "",
+        "description": "Via storica di Bari Vecchia che attraversa il centro antico, arteria principale del borgo medievale",
         "latitude": 41.1271214,
         "longitude": 16.8714034,
         "type": "old"
