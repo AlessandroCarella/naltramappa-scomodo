@@ -398,35 +398,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Add keyboard controls for accessibility
 document.addEventListener("keydown", function (e) {
-    const panAmount = 50;
+    console.log("Key pressed:", e.key, "Code:", e.code); // Debug line
+    
+    const panAmount = 0.002;
     const center = map.getCenter();
 
     switch (e.key) {
         case "ArrowUp":
-            map.panTo([center.lat + 0.01, center.lng]);
+            map.panTo([center.lat + panAmount, center.lng]);
             break;
         case "ArrowDown":
-            map.panTo([center.lat - 0.01, center.lng]);
+            map.panTo([center.lat - panAmount, center.lng]);
             break;
         case "ArrowLeft":
-            map.panTo([center.lat, center.lng - 0.01]);
+            map.panTo([center.lat, center.lng - panAmount]);
             break;
         case "ArrowRight":
-            map.panTo([center.lat, center.lng + 0.01]);
+            map.panTo([center.lat, center.lng + panAmount]);
             break;
         case "+":
         case "=":
+        case "F13":
             map.setZoom(map.getZoom() + MAP_ZOOM_DELTA);
             break;
         case "-":
         case "_":
+        case "F14":
             map.setZoom(map.getZoom() - MAP_ZOOM_DELTA);
             break;
         case " ": // Space bar
         case "r":
         case "R":
-            e.preventDefault(); // Prevent default space bar scrolling
-            // Reset zoom using initial bounds or default center
+            e.preventDefault();
             if (initialBounds) {
                 map.fitBounds(initialBounds, {
                     padding: POLYGON_BOUNDS_PADDING,

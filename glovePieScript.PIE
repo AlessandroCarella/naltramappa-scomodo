@@ -1,0 +1,66 @@
+/*
+    WiiMotion Plus Mouse - Drift Corrected Version
+    Added dead zone and calibration improvements
+*/
+var.MoveButton = wiimote.B
+mouse.LeftButton = wiimote.A
+// mouse.RightButton = wiimote.Plus
+mouse.MiddleButton = wiimote.Down   
+Keyboard.F13 = wiimote.Plus
+Keyboard.F14 = wiimote.Minus
+Keyboard.R = wiimote.Home
+Keyboard.Up = wiimote.Up
+Keyboard.Down = wiimote.Down
+Keyboard.Right = wiimote.Right
+Keyboard.Left = wiimote.Left
+
+var.Speed = 10   // 0 to 100
+var.DeadZone = 0.3  // Adjust between 0.3 and 2.0
+PIE.FrameRate = 120hz
+
+if wiimote.HasMotionPlus = false then debug = "WiiMotion Plus NOT DETECTED!"
+
+if wiimote.HasMotionPlus = true and var.MoveButton = true {
+   var.YawSpeed = wiimote.MotionPlus.YawSpeed
+   var.PitchSpeed = wiimote.MotionPlus.PitchSpeed
+   
+   // Apply dead zone
+   if abs(var.YawSpeed) < var.DeadZone then var.YawSpeed = 0
+   if abs(var.PitchSpeed) < var.DeadZone then var.PitchSpeed = 0
+   
+   if SameValue( Smooth(wiimote.SmoothRoll, 10), wiimote.SmoothRoll, 10) then var.Roll = Smooth(wiimote.SmoothRoll, 10) else var.Roll = wiimote.SmoothRoll
+   
+   if var.Roll < 0 and var.Roll >= -90 {
+      var.XYswap = 1 - EnsureMapRange(var.Roll, -90, 0, 0, 1)
+      var.RightDown = -1
+      var.TopUp = 1
+   }
+   if var.Roll <= 90 and var.Roll >= 0 {
+      var.XYswap = 1 - EnsureMapRange(var.Roll, 90, 0, 0, 1)
+      var.RightDown = 1
+      var.TopUp = 1
+   }
+   if var.Roll > 90 and var.Roll <= 180 {
+      var.XYswap = 1 - EnsureMapRange(var.Roll, 90, 180, 0, 1)
+      var.RightDown = 1
+      var.TopUp = -1
+   }
+   if var.Roll < -90 and var.Roll >= -180 {
+      var.XYswap = 1 - EnsureMapRange(var.Roll, -90, -180, 0, 1)
+      var.RightDown = -1
+      var.TopUp = -1
+   }
+   
+   var.SpeedX = var.TopUp * var.YawSpeed - ( var.TopUp * var.YawSpeed * var.XYswap ) + ( var.RightDown * var.PitchSpeed * var.XYswap )
+   var.SpeedY = var.TopUp * var.PitchSpeed - ( var.TopUp * var.PitchSpeed * var.XYswap) + ( -var.RightDown * var.YawSpeed * var.XYswap )
+   
+   mouse.DirectInputX = int(var.MouseX)
+   mouse.DirectInputY = int(var.MouseY)
+   var.MouseX = var.MouseX + ( var.SpeedX / (10500000 - EnsureMapRange(var.Speed, 0, 100, 0, 10000000) ) )
+   var.MouseY = var.MouseY - ( var.SpeedY / (10500000 - EnsureMapRange(var.Speed, 0, 100, 0, 10000000) ) )
+}
+
+if var.MoveButton = false {
+   var.MouseX = mouse.DirectInputX
+   var.MouseY = mouse.DirectInputY
+}
