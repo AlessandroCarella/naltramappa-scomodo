@@ -61,16 +61,9 @@ const map = L.map("map", {
     wheelDebounceTime: 40, // Debounce time for scroll wheel in milliseconds
 });
 
-// Add CartoDB Voyager tile layer (no labels)
-L.tileLayer(
-    "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}.png",
-    {
-        attribution:
-            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-        maxZoom: MAP_MAX_ZOOM,
-        minZoom: MAP_MIN_ZOOM,
-    },
-).addTo(map);
+// Basemap: OpenFreeMap Positron, no labels (see positronLayer in index.html)
+positronLayer().addTo(map);
+map.setMinZoom(MAP_MIN_ZOOM).setMaxZoom(MAP_MAX_ZOOM);
 
 // Base icon sizes (these will be scaled based on zoom)
 const BASE_ICON_WIDTH = 25;

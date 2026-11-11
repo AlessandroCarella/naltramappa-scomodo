@@ -45,6 +45,31 @@
 
         <!-- Leaflet JavaScript -->
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        <!-- Basemap: OpenFreeMap Positron (free, commercial use allowed), rendered via MapLibre, labels removed -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.min.js"></script>
+        <script src="https://unpkg.com/@maplibre/maplibre-gl-leaflet@0.1.3/leaflet-maplibre-gl.js"></script>
+        <script>
+            // Drop-in replacement for L.tileLayer(...): returns a Leaflet layer synchronously,
+            // the style is fetched in the background. layer.styleReady resolves once applied.
+            function positronLayer(options) {
+                const layer = L.maplibreGL(Object.assign({
+                    style: { version: 8, sources: {}, layers: [] },
+                    attributionControl: {
+                        customAttribution: '<a href="https://openfreemap.org">OpenFreeMap</a> &copy; <a href="https://www.openmaptiles.org/">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                    },
+                }, options));
+                layer.styleReady = fetch("https://tiles.openfreemap.org/styles/positron")
+                    .then((r) => r.json())
+                    .then((style) => {
+                        style.layers = style.layers.filter((l) => l.type !== "symbol"); // no labels/icons
+                        layer.options.style = style;
+                        const glMap = layer.getMaplibreMap();
+                        if (glMap) glMap.setStyle(style);
+                    });
+                return layer;
+            }
+        </script>
 
         <!-- Constants -->
         <script src="constants.js"></script>
